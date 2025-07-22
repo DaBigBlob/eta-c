@@ -25,6 +25,7 @@ These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`
 ## development
 - use `newcfile` shell script to create new files
     - file names must be in snake-case
+- 2 space indentation
 - no dependencies external to this repository allowed
 - must not depend on system secific code (expeption: code in src/sys)
     - this includes a system's libc
