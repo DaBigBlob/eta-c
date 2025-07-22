@@ -45,7 +45,7 @@ You may set `CC` with any target options your compiler supports (e.g. `x86_64-wi
 ```bash
 make build CC="zig cc -static -target x86_64-windows-gnu"
 ```  
-I recommend `zig cc` for cross compiling to ordinary targets under LLVM.  
+I recommend [`zig cc`](https://zig.guide/working-with-c/zig-cc/) for cross compiling to ordinary targets under LLVM.  
 
 For polymorphic binaries, I recommend [`cosmopolitan's C compiler`](https://justine.lol/cosmopolitan/index.html).
 
