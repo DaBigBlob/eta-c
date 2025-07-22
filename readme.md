@@ -35,10 +35,13 @@ make run    # to rebuild and try run the executable if native (alias: make r)
 ```
 ### C compiler
 `make build` uses `zig cc` as the C compiler.  
-You may select other compilers in your path (e.g. `gcc`) like so: `CC=gcc make build`  
+You may select other compilers in your path (e.g. `gcc`) like so: `make build CC=gcc`  
 
 ### cross compiling
-You may set `CC` with any target options your compiler supports (e.g. `x86_64-windows-gnu`) like so: `zig cc -static -target x86_64-windows-gnu`  
+You may set `CC` with any target options your compiler supports (e.g. `x86_64-windows-gnu`) like so:  
+```bash
+make build CC="zig cc -static -target x86_64-windows-gnu"
+```  
 I recommend `zig cc` for cross compiling to ordinary targets under LLVM.  
 
 # HEAVY WIP
