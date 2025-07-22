@@ -2,6 +2,15 @@
 Eta is a dependently typed, highly parallel, functional style programming language and theorem prover with higher order metaprogramming.
 
 ## dependencies
+### run-time
+- target kernel
+
+### build-time
+- `printf` (writing to files (including stdout))
+- `mkdir` (recursive directory creation)
+- `make` (a GNU Make implementation)
+- `zig cc` / `clang` / `gcc` (a GCC compatible C compiler)
+
 ### development-time
 - `printf` (writing to files (including stdout))
 - `tr` (find and replace)
@@ -11,14 +20,7 @@ Eta is a dependently typed, highly parallel, functional style programming langua
 - `sh` (any POSIX compatible shell)
 - `zig cc` / `clang` / `gcc` (a GCC compatible C compiler)
 
-### build-time
-- `printf` (writing to files (including stdout))
-- `mkdir` (recursive directory creation)
-- `make` (a GNU Make implementation)
-- `zig cc` / `clang` / `gcc` (a GCC compatible C compiler)
-
-### run-time
-- target kernel
+These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`](https://justine.lol/cosmopolitan/index.html) to polymorphic binaries and shipped for a portable build system.
 
 ## development
 - use `newcfile` shell script to create new files
@@ -44,5 +46,7 @@ You may set `CC` with any target options your compiler supports (e.g. `x86_64-wi
 make build CC="zig cc -static -target x86_64-windows-gnu"
 ```  
 I recommend `zig cc` for cross compiling to ordinary targets under LLVM.  
+
+For polymorphic binaries, I recommend [`cosmopolitan cc`](https://justine.lol/cosmopolitan/index.html)
 
 # HEAVY WIP
