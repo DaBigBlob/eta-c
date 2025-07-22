@@ -25,3 +25,13 @@ Eta is a dependently typed, highly parallel, functional style programming langua
 - no dependencies external to this repository allowed
 - must not depend on system secific code (expeption: code in src/sys)
     - this includes a system's libc
+
+## building
+```bash
+make build  # to build
+make clean  # to remove all build artifacts
+make run    # to rebuild and try run the executable if native
+```
+### C compiler
+`make build` uses `zig cc` as the C compiler.  
+You may select other compilers in your path (for e.g. `gcc`) like so: `CC=gcc make build`
