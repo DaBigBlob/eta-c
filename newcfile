@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# dependencies: printf, tr, mkdir, pwd
+
+if [ -n "$1" ]; then
+  _path="$1"
+else
+  printf "need relative file path\n"
+  exit 1
+fi
+
+_dir=$(dirname "${_path}")
+mkdir -p "${_dir}"
+cd "${_dir}" || exit
+_dir=$(pwd)
+
+_file=$(basename "${_path}")
+_name=${_file}
+if [ "${_name}" = "_" ]; then
+    _name=$(basename "${_dir}")
+fi
+_pre_name=$(dirname "${_path}")
+if [ "${_pre_name}" = "." ]; then
+    _pre_name=""
+fi
+_pre_name=$(printf "%s" "${_pre_name}_" | tr '/' '_')
+_name=$(printf "%s" "${_pre_name}${_name}" | tr '[:lower:]' '[:upper:]' | tr '.' '_')
+shift
+
+_file="${_dir}/${_file}"
+
+{
+    printf "#ifndef %s\n" "${_name}"
+    printf "#define %s\n" "${_name}"
+    printf " \n#endif //%s\n" "${_name}"
+} > "${_file}"
+exit 0
