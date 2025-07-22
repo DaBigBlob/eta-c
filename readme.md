@@ -28,9 +28,9 @@ Eta is a dependently typed, highly parallel, functional style programming langua
 
 ## building
 ```bash
-make build  # to build
-make clean  # to remove all build artifacts
-make run    # to rebuild and try run the executable if native
+make build  # to build (alias: make b)
+make clean  # to remove all build artifacts (alias: make c)
+make run    # to rebuild and try run the executable if native (alias: make r)
 ```
 ### C compiler
 `make build` uses `zig cc` as the C compiler.  

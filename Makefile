@@ -21,3 +21,8 @@ clean: ${BIN}
 run: build
 	@${_PRINTER} "running: ${BIN}${NAME}\n" 
 	${BIN}${NAME} ${TA}
+
+# aliases
+b: build
+c: clean
+r: run
