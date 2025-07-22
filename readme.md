@@ -37,7 +37,7 @@ make clean  # to remove all build artifacts (alias: make c)
 make run    # to rebuild and try run the executable if native (alias: make r)
 ```
 ### C compiler
-`make build` uses `zig cc` as the C compiler.  
+`make build` uses `zig cc` as the C compiler by default.  
 You may select other compilers in your path (e.g. `gcc`) like so: `make build CC=gcc`  
 
 ### cross compiling
