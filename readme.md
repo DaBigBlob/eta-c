@@ -41,3 +41,4 @@ You may select other compilers in your path (e.g. `gcc`) like so: `CC=gcc make b
 You may set `CC` with any target options your compiler supports (e.g. `x86_64-windows-gnu`) like so: `zig cc -static -target x86_64-windows-gnu`  
 I recommend `zig cc` for cross compiling to ordinary targets under LLVM.  
 
+# HEAVY WIP
