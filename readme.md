@@ -47,6 +47,6 @@ make build CC="zig cc -static -target x86_64-windows-gnu"
 ```  
 I recommend `zig cc` for cross compiling to ordinary targets under LLVM.  
 
-For polymorphic binaries, I recommend [`cosmopolitan's C compiler`](https://justine.lol/cosmopolitan/index.html)
+For polymorphic binaries, I recommend [`cosmopolitan's C compiler`](https://justine.lol/cosmopolitan/index.html).
 
 # HEAVY WIP
