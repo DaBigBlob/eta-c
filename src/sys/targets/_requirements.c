@@ -5,10 +5,7 @@
 
 #include "../../lib/prelude.c"
 
-deft(zerot, _target_unpack_args,
-    struct {uint argc_p; list(string) argv_p;},
-    const string
-)
+deft(zerot, _target_unpack_args, struct {uint argc_p; list(string) argv_p;}, zerot)
 defn(_target_unpack_args);
 
 deft(uint, __target_exit, zerot, zerot)
