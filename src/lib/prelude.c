@@ -20,9 +20,9 @@ typedef enum _tag_bool {
     false = !true
 } bool; // maybe even __attribute__((__packed__)) bool?;
 
-typedef struct {} notype;
+typedef struct {} zerot;
 
-#define defn(in_t, name, out_ok_t, out_err_t)\
+#define deft(in_t, name, out_ok_t, out_err_t)\
 typedef union {\
     struct {\
         union {\
@@ -32,12 +32,15 @@ typedef union {\
         bool isok;\
     } out;\
     in_t in;\
-} name##_data;\
+} name##_data;
+
+#define defn(name)\
 void name##_fn(name##_data *var)
 
 
 /* examples */
-// defn(int, bb, int, notype) {
+// deft(int, bb, int, zerot)
+// defn(bb) {
 //     int a = var->in;
 //     var->out.isok = true;
 //     var->out.unwrap.ok = 2;
