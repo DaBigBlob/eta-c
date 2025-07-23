@@ -14,7 +14,8 @@ defn(_target_unpack_args);
 deft(uint, __target_exit, zerot, zerot)
 defn(__target_exit);
 
-void _target_openf(const string path, uint oFlags, memp ret_fd);
+deft(struct {const string path; uint oflags;}, _target_openf, memp, const string)
+defn(_target_openf);
 
 void _target_readf(
     const memp fd, memp ret_mut_buff, const memsz nbytes_toread, memsz ret_nbytes_written

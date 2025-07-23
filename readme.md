@@ -26,7 +26,8 @@ These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`
 - use `newcfile` shell script to create new files
     - file names must be in snake-case
     - example: `./newcfile src/sys/targets/dead_badger_riscv64.c`
-- 2 space indentation
+- 4 space indentation
+- C11
 - no dependencies external to this repository allowed
 - no internal use of floats allowed
 - must not depend on system secific code (expeption: code in src/sys)
