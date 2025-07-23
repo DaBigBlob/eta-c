@@ -28,7 +28,7 @@ These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`
     - example: `./newcfile src/sys/targets/dead_badger_riscv64.c`
 - 2 space indentation
 - no dependencies external to this repository allowed
-- no floats allowed
+- no internal use of floats allowed
 - must not depend on system secific code (expeption: code in src/sys)
     - this includes a system's libc
     - this includes code that depends on the C runtime
