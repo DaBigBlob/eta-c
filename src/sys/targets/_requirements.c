@@ -14,10 +14,10 @@ defn(__target_exit);
 deft(struct {const string path; uint oflags;}, _target_openf, memp, const string)
 defn(_target_openf);
 
-deft(struct {const memp fd; memp wbuff; memsz nbytes_to_read;}, _target_readf, memsz, const string)
+deft(struct {const memp fd; memp wbuff; const memsz nbytes_to_read;}, _target_readf, memsz, const string)
 defn(_target_readf);
 
-deft(struct {memp fd; const memp rbuff; memsz nbytes_to_write;}, _target_writef, memsz, const string)
+deft(struct {memp fd; const memp rbuff; const memsz nbytes_to_write;}, _target_writef, memsz, const string)
 defn(_target_writef);
 
 deft(memp, _target_cosef, zerot, const string)
