@@ -22,19 +22,34 @@ typedef enum _tag_bool {
 
 // graceful error handeling
 #define _def_result(name, etc) \
-    typedef const struct __result##name {\
-        const bool ok;\
-        etc\
+    typedef struct __result##name {\
+        bool ok;\
+        etc;\
     } result##name
 
 _def_result(,); // result
-result RESOK = {
+const result RESOK = {
     .ok = true
 };
-result RESERR = {
+const result RESERR = {
     .ok = false
 };
 
-_def_result(_str, const string more;); // result_str
+_def_result(_str, string more); // result_str
+
+// result complient functions
+#define _defn(name, _ret_t, ivar)\
+    _ret_t* fn_##name(_ret_t* ivar)
+
+/* example */
+// _defn(b, result_str, s) {
+//     s->ok = true;
+//     s->more = 0;
+//     return s;
+// }
+// void a() {
+//     result_str nigma;
+//     bool lol = fn_b(&nigma)->ok;
+// }
 
 #endif //SRC_LIB_PRELUDE_C
