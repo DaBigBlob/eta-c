@@ -34,10 +34,10 @@ const result RESERR = {.ok = false};
 _def_result(_str, string more); // result_str
 
 // result complient functions
-#define _defn(name, _ret_t, ivar) _ret_t *fn_##name(_ret_t *ivar)
+#define _defn(name, _ret_t, ivar) _ret_t *fn##name(_ret_t *ivar)
 
 /* example */
-// _defn(b, result_str, s) {
+// _defn(_b, result_str, s) {
 //     s->ok = true;
 //     s->more = 0;
 //     return s;
