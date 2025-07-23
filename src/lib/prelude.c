@@ -1,0 +1,4 @@
+#ifndef SRC_LIB_PRELUDE_C
+#define SRC_LIB_PRELUDE_C
+ 
+#endif //SRC_LIB_PRELUDE_C
