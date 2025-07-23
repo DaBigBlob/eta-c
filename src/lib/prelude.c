@@ -34,7 +34,12 @@ const result RESERR = {.ok = false};
 def_result(_str, string more); // result_str
 
 // result complient functions
-#define defn(name, ivar) result##name *fn##name(result##name *ivar)
+#define defn(name, rettype, ivar)\
+    typedef struct __result##name {\
+        bool ok;\
+        rettype;\
+    } result##name;\
+    result##name *fn##name(result##name *ivar)
 
 /* example */
 // _defn(_b, result_str, s) {
