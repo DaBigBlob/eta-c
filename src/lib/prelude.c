@@ -18,6 +18,23 @@ typedef list(char) string;
 typedef enum _tag_bool {
     true = 1,
     false = !true
-} bool; // maybe even? __attribute__((__packed__)) bool;
- 
+} bool; // maybe even __attribute__((__packed__)) bool?;
+
+// graceful error handeling
+#define _def_result(name, etc) \
+    typedef const struct __result##name {\
+        const bool ok;\
+        etc\
+    } result##name
+
+_def_result(,); // result
+result RESOK = {
+    .ok = true
+};
+result RESERR = {
+    .ok = false
+};
+
+_def_result(_str, const string more;); // result_str
+
 #endif //SRC_LIB_PRELUDE_C
