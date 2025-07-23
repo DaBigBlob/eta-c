@@ -5,18 +5,23 @@
 
 #include "../../lib/prelude.c"
 
-defn(_target_unpack_args,
-    union {
-        struct {
-            uint argc_p;
-            list(string) argv_p;
-        } ok;
-        const string error;
-    } data;
-, ivar);
+// defn(_target_unpack_args,
+//     union {
+//         struct {
+//             uint argc_p;
+//             list(string) argv_p;
+//         } ok;
+//         const string error;
+//     } data;
+// , ivar);
 
-void __target_exit(uint code);
-defn(_target_exit, ,ivar);
+defn(notype, _target_unpack_args,
+    struct {uint argc_p; list(string) argv_p;},
+    const string
+);
+
+// void __target_exit(uint code);
+// defn(_target_exit, ,ivar);
 
 void _target_openf(const string path, uint oFlags, memp ret_fd);
 

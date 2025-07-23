@@ -20,36 +20,35 @@ typedef enum _tag_bool {
     false = !true
 } bool; // maybe even __attribute__((__packed__)) bool?;
 
-// graceful error handeling
-#define def_result(name, etc)\
-typedef struct __result##name {\
-    bool ok;\
-    etc;\
-} result##name
+typedef struct {} notype;
 
-def_result(, ); // result
-const result RESOK = {.ok = true};
-const result RESERR = {.ok = false};
+#define defn(in_t, name, out_ok_t, out_err_t)\
+typedef union {\
+    struct {\
+        union {\
+            out_ok_t ok;\
+            out_err_t err;\
+        } unwrap;\
+        bool isok;\
+    } out;\
+    in_t in;\
+} name##_data;\
+void name##_fn(name##_data *var)
 
-def_result(_str, string more); // result_str
 
-// result complient functions
-#define defn(name, rettype, ivar)\
-    typedef struct __result##name {\
-        bool ok;\
-        rettype;\
-    } result##name;\
-    result##name *fn##name(result##name *ivar)
-
-/* example */
-// _defn(_b, result_str, s) {
-//     s->ok = true;
-//     s->more = 0;
-//     return s;
+/* examples */
+// defn(int, bb, int, notype) {
+//     int a = var->in;
+//     var->out.isok = true;
+//     var->out.unwrap.ok = 2;
 // }
-// void a() {
-//     result_str nigma;
-//     bool lol = fn_b(&nigma)->ok;
+
+// void aa() {
+//     bb_data nu = {
+//         .in = 9
+//     };
+//     bb_fn(&nu);
+//     if (nu.out.isok) nu.in = nu.out.unwrap.ok;
 // }
 
 #endif // SRC_LIB_PRELUDE_C
