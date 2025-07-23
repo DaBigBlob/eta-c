@@ -5,12 +5,6 @@
 
 #include "../../lib/prelude.c"
 
-#ifndef NEWLINE
-    #define NEWLINE "\n"
-#endif // NEWLINE
-
-#define nl NEWLINE
-
 deft(
     zerot,
     _target_unpack_args,
