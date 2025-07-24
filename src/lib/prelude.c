@@ -37,8 +37,10 @@ typedef union {\
 #define defn(name)\
 void name##_fn(name##_data *var)
 
+#define def_errstr(fname, name, str) const string ERRSTR_##name##fname = #fname" ERROR: "#str;
 
 /* examples */
+// def_errstr(bb, lol, (lamo is this real?));
 // deft(bb, int, int, zerot)
 // defn(bb) {
 //     int a = var->in;
