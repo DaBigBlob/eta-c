@@ -4,7 +4,6 @@
 #else
 #define SRC_SYS_ENTRY_C
 
-#include "./_.c" // IWYU pragma: keep
 #include "../main.c"
 #include "../lib/bytes.c"
 
