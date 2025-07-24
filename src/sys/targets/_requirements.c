@@ -11,7 +11,7 @@ deft(
     struct {uint argc; list(string) argv;},
     zerot
 )
-defn(_target_unpack_args);
+static inline defn(_target_unpack_args);
 
 deft(
     _target_exit,
@@ -19,7 +19,7 @@ deft(
     zerot,
     zerot
 )
-defn(_target_exit);
+static inline defn(_target_exit);
 
 deft(
     _target_openf,
@@ -27,7 +27,7 @@ deft(
     struct {const memp fd;},
     const string
 )
-defn(_target_openf);
+static inline defn(_target_openf);
 
 deft(
     _target_readf,
@@ -35,7 +35,7 @@ deft(
     struct {const memsz nbytes_read;},
     const string
 )
-defn(_target_readf);
+static inline defn(_target_readf);
 
 deft(
     _target_writef,
@@ -43,7 +43,7 @@ deft(
     struct {const memsz nbytes_written;},
     const string
 )
-defn(_target_writef);
+static inline defn(_target_writef);
 
 deft(
     _target_cosef,
@@ -51,6 +51,6 @@ deft(
     zerot,
     const string
 )
-defn(_target_cosef);
+static inline defn(_target_cosef);
 
 #endif // SRC_SYS_TARGETS__REQUIREMENTS_C

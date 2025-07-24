@@ -5,7 +5,7 @@
 
 uint sys_main(uint argc, list(string) argv) {
     
-    // hey clangd, how about you shut the fuck up?
+    // hey clang, how about you shut the fuck up?
     if (argc) if (argv) {}
 
     return 0;
