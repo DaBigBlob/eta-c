@@ -15,7 +15,7 @@ static inline defn(_target_unpack_args);
 
 deft(
     _target_exit,
-    int,
+    long,
     zerot,
     string
 )
@@ -32,7 +32,7 @@ static inline defn(_target_openf);
 deft(
     _target_readf,
     struct {memp fd; memp wbuff; memsz nbytes_to_read;},
-    struct {long nbytes_read;},
+    struct {memsz nbytes_read;},
     string
 )
 static inline defn(_target_readf);
@@ -40,7 +40,7 @@ static inline defn(_target_readf);
 deft(
     _target_writef,
     struct {memp fd; memp rbuff; memsz nbytes_to_write;},
-    struct {long nbytes_written;},
+    struct {memsz nbytes_written;},
     string
 )
 static inline defn(_target_writef);
