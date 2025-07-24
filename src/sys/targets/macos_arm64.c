@@ -19,10 +19,14 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
     return _ret;
 }
 
+#define STDIN_FD
+#define STDOUT_FD
+#define STDERR_FD
+
 static inline defn(_target_unpack_args){
     //TODO
     // shutup clang
-    if (var) {}
+    var->out.isok = true;
 }
 
 def_errstr(_target_exit,) "could not exit program";
