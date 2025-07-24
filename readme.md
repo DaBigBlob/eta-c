@@ -51,7 +51,7 @@ You may set `CC` with any target options your compiler supports (e.g. `x86_64-wi
 make build CC="zig cc -static -target x86_64-windows-gnu"
 ```  
 I recommend [`zig cc`](https://zig.guide/working-with-c/zig-cc/) for cross compiling to ordinary targets under LLVM.  
-NOTE: while compiling to darwin targets, `zig cc` links to `/usr/lib/libSystem.B.dylib`. but using darwin-native clang, gets rid it it.  
+NOTE: while compiling to darwin targets, `zig cc` links to `/usr/lib/libSystem.B.dylib`. but using darwin-native clang, links against anothing (ideal as this is supposed to be a standalone binary).  
 
 
 For polymorphic binaries, I recommend [`cosmopolitan's C compiler`](https://justine.lol/cosmopolitan/index.html).
