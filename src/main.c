@@ -3,18 +3,17 @@
 
 #include "./lib/prelude.c"
 #include "./lib/bytes.c"
-#include "./sys/_.c"
+#include "./sys/_.c" // IWYU pragma: keep
 
 uint sys_main(uint argc, list(string) argv) {
-    
-    // hey clang, how about you shut the fuck up?
-    if (argc) if (argv) {}
+
+    if (argc < 2) return 2;
 
     _target_writef_data wdata = {
         .in = {
             .fd = STDOUT_FD,
-            .rbuff = "Hello world!" nl "\0",
-            .nbytes_to_write = sizeof_buff(wdata.in.rbuff)
+            .rbuff = argv[1],
+            .nbytes_to_write = sizeof_buff(argv[1])
         }
     };
     _target_writef_fn(&wdata);

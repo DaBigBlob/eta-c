@@ -8,17 +8,12 @@
 #include "../main.c"
 #include "../lib/bytes.c"
 
-void sys_entry() __asm__ ("__sys_entry");
-void sys_entry() {
+void sys_entry(uint argc, list(string) argv) __asm__ ("__sys_entry");
+void sys_entry(uint argc, list(string) argv) {
     _target_writef_data wdata;
-    _target_unpack_args_data aargs;
-    _target_unpack_args_fn(&aargs);
-    if (!aargs.out.isok) return; // TODO: do a better job: error handeling
 
-    _target_exit_data aexit = {.in = sys_main(
-        aargs.out.unwrap.ok.argc,
-        aargs.out.unwrap.ok.argv
-    )};
+    _target_exit_data aexit = {.in = sys_main(argc, argv)};
+    
     _target_exit_fn(&aexit);
     if (!aexit.out.isok) {
         wdata.in.fd = STDOUT_FD;

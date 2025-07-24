@@ -6,14 +6,6 @@
 #include "../../lib/prelude.c"
 
 deft(
-    _target_unpack_args,
-    zerot,
-    struct {uint argc; list(string) argv;},
-    zerot
-)
-static inline defn(_target_unpack_args);
-
-deft(
     _target_exit,
     long,
     zerot,
