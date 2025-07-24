@@ -17,7 +17,7 @@ deft(
     _target_exit,
     uint,
     zerot,
-    zerot
+    string
 )
 static inline defn(_target_exit);
 
@@ -25,7 +25,7 @@ deft(
     _target_openf,
     struct {const string path; uint oflags;},
     struct {const memp fd;},
-    const string
+    string
 )
 static inline defn(_target_openf);
 
@@ -33,7 +33,7 @@ deft(
     _target_readf,
     struct {const memp fd; memp wbuff; const memsz nbytes_to_read;},
     struct {const memsz nbytes_read;},
-    const string
+    string
 )
 static inline defn(_target_readf);
 
@@ -41,7 +41,7 @@ deft(
     _target_writef,
     struct {memp fd; const memp rbuff; const memsz nbytes_to_write;},
     struct {const memsz nbytes_written;},
-    const string
+    string
 )
 static inline defn(_target_writef);
 
@@ -49,7 +49,7 @@ deft(
     _target_cosef,
     struct {const memp fd;},
     zerot,
-    const string
+    string
 )
 static inline defn(_target_cosef);
 
