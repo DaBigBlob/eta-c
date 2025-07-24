@@ -9,10 +9,10 @@
 
 inline memsz
 sizeof_delim_buff(byte delim, const memp buff)
-_def_byte_delimit_sizeof_buff(delim, buff);
+_def_byte_delimit_sizeof_buff(delim, buff)
 
 inline memsz
 sizeof_buff(const memp buff)
-_def_byte_delimit_sizeof_buff('\0', buff);
+_def_byte_delimit_sizeof_buff('\0', buff)
 
 #endif // SRC_LIB_BYTES_C

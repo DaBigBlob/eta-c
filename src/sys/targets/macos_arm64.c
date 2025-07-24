@@ -19,9 +19,9 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
     return _ret;
 }
 
-#define STDIN_FD
-#define STDOUT_FD
-#define STDERR_FD
+#define STDIN_FD (memp)(ulong)0
+#define STDOUT_FD (memp)(ulong)1
+#define STDERR_FD (memp)(ulong)2
 
 static inline defn(_target_unpack_args){
     //TODO
@@ -31,9 +31,25 @@ static inline defn(_target_unpack_args){
 
 def_errstr(_target_exit,) "could not exit program";
 static inline defn(_target_exit){
-    ___internal_macos_arm64_syscall3((memp)1, (memp)(long)var->in, 0, 0);
+    ___internal_macos_arm64_syscall3((memp)1, (memp)(ulong)var->in, 0, 0);
     var->out.isok = false; // actually unreachable so false i.e. something went wrong
     var->out.unwrap.err = ERRSTR__target_exit;
+}
+
+static inline defn(_target_writef) {
+    memp _ret = ___internal_macos_arm64_syscall3(
+        (memp)4,
+        (memp)(ulong)var->in.fd,
+        var->in.rbuff,
+        (memp)var->in.nbytes_to_write
+    );
+    if ((long)_ret < 0) {
+        var->out.isok = false;
+        // TODO: define all errors as const string
+    } else {
+        var->out.isok = true;
+        var->out.unwrap.ok.nbytes_written = (long)_ret;
+    }
 }
 
 #endif // SRC_SYS_TARGETS_MACOS_ARM64_C
