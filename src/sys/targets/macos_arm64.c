@@ -20,7 +20,7 @@ static inline defn(_target_exit){
         : "r"((long)var->in)
         : "x0", "x16", "memory"
     );
-    var->out.isok = true;
+    var->out.isok = true; // actually unreachable
 }
 
 #endif // SRC_SYS_TARGETS_MACOS_ARM64_C
