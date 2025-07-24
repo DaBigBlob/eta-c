@@ -22,7 +22,7 @@ typedef enum _tag_bool {
 
 typedef struct {} zerot;
 
-#define deft(in_t, name, out_ok_t, out_err_t)\
+#define deft(name, in_t, out_ok_t, out_err_t)\
 typedef union {\
     struct {\
         union {\
@@ -39,7 +39,7 @@ void name##_fn(name##_data *var)
 
 
 /* examples */
-// deft(int, bb, int, zerot)
+// deft(bb, int, int, zerot)
 // defn(bb) {
 //     int a = var->in;
 //     var->out.isok = true;
