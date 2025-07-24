@@ -19,8 +19,8 @@ clean: ${BIN}
 	rm -rf ${BIN}
 
 run: build
-	@${_PRINTER} "running: ${BIN}${NAME}\n" 
-	${BIN}${NAME} ${TA}
+	@${_PRINTER} "running: ${BIN}${NAME}\n\n" 
+	@${BIN}${NAME} ${TA}
 
 # aliases
 b: build
