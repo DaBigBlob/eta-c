@@ -18,6 +18,8 @@ uint sys_main(uint argc, list(string) argv) {
         }
     };
     _target_writef_fn(&wdata);
+    if (!wdata.out.isok) return 1;
+    // TODO: better error handeling
 
     return 0;
 }
