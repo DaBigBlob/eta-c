@@ -19,9 +19,9 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
     return _ret;
 }
 
-#define STDIN_FD (memp)(ulong)0
-#define STDOUT_FD (memp)(ulong)1
-#define STDERR_FD (memp)(ulong)2
+#define STDIN_FD (memp)(long)0
+#define STDOUT_FD (memp)(long)1
+#define STDERR_FD (memp)(long)2
 
 static inline defn(_target_unpack_args){
     //TODO
