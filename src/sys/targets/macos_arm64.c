@@ -3,7 +3,7 @@
 
 #include "./_requirements.c"
 
-static inline memp __internal_syscall3(memp callno, memp a1, memp a2, memp a3) {
+static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a2, memp a3) {
     void* _ret;
     __asm__ __volatile__ (
         "mov x16, %1\n"
@@ -26,7 +26,7 @@ static inline defn(_target_unpack_args){
 }
 
 static inline defn(_target_exit){
-    __internal_syscall3((memp)1, (memp)(long)var->in, 0, 0);
+    ___internal_macos_arm64_syscall3((memp)1, (memp)(long)var->in, 0, 0);
     var->out.isok = true; // actually unreachable
 }
 
