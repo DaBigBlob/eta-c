@@ -37,9 +37,9 @@ These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`
 
 ## building
 ```bash
-make build  # to build (alias: make b)
+make build  # to build (alias: make b) (set BFLAGS to pass extra args to compiler)
 make clean  # to remove all build artifacts (alias: make c)
-make run    # to rebuild and try run the executable if native (alias: make r)
+make run    # to rebuild and try run the executable if native (alias: make r) (set RA to pass commandline args to binary)
 ```
 ### C compiler
 `make build` uses `zig cc` as the C compiler by default.  
