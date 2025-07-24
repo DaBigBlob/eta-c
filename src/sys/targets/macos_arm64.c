@@ -24,6 +24,7 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
 #define STDERR_FD (memp)(long)2
 
 static inline defn(_target_unpack_args){
+    // kinda useless for *nix ish OSs
     if ((long)(var->in.sp0) < 0) {
         var->out.isok = false;
         return;
