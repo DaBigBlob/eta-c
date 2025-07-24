@@ -10,7 +10,7 @@ typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
 
-typedef void* memp;  // mem pointer // not void* to make *arithmetic easier
+typedef byte *memp;  // mem pointer // not void* to make *arithmetic easier
 typedef ulong memsz; // mem sized
 
 typedef list(char) string;
