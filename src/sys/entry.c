@@ -7,13 +7,20 @@
 #include "../main.c"
 #include "../lib/bytes.c"
 
-void sys_entry(uint argc, list(string) argv) __asm__ ("__sys_entry");
-void sys_entry(uint argc, list(string) argv) {
+void sys_entry(void* sp0, void* sp1) __asm__ ("__sys_entry");
+void sys_entry(void* sp0, void* sp1) {
     _target_writef_data wdata;
 
-    _target_exit_data aexit = {.in = sys_main(argc, argv)};
+    _target_unpack_args_data updata = {.in = {.sp0 = sp0, .sp1=sp1}};
+    _target_unpack_args_fn(&updata);
+    if (!updata.out.isok) return; // TODO: better error handeling
+
+    _target_exit_data aexit = {.in = sys_main(
+        updata.out.unwrap.ok.argc,
+        updata.out.unwrap.ok.argv
+    )};
     _target_exit_fn(&aexit);
-    
+
     if (!aexit.out.isok) {
         wdata.in.fd = STDOUT_FD;
         wdata.in.nbytes_to_write = sizeof_buff(aexit.out.unwrap.err);
