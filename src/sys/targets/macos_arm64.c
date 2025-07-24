@@ -3,6 +3,22 @@
 
 #include "./_requirements.c"
 
+static inline memp __internal_syscall3(memp callno, memp a1, memp a2, memp a3) {
+    void* _ret;
+    __asm__ __volatile__ (
+        "mov x16, %1\n"
+        "mov x0, %2\n"
+        "mov x1, %3\n"
+        "mov x2, %4\n"
+        "svc #0x80\n"
+        "mov %0, x0\n"
+        : "=r" (_ret)
+        : "r" (0x2000000+callno), "r" (a1), "r" (a2), "r" (a3)
+        : "memory", "x0", "x1", "x2", "x16", "x17"
+    );
+    return _ret;
+}
+
 static inline defn(_target_unpack_args){
     //TODO
     // shutup clang
@@ -10,16 +26,7 @@ static inline defn(_target_unpack_args){
 }
 
 static inline defn(_target_exit){
-    __asm__ __volatile__ (
-        // x0 = code (argument), x16 = syscall number (0x2000001)
-        "mov x0, %0\n"
-        "mov x16, #1\n"
-        "movk x16, #0x2000, lsl #16\n"
-        "svc #0x80\n"
-        :
-        : "r"((long)var->in)
-        : "x0", "x16"
-    );
+    __internal_syscall3((memp)1, (memp)(long)var->in, 0, 0);
     var->out.isok = true; // actually unreachable
 }
 
