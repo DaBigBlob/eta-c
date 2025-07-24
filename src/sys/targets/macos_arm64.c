@@ -14,7 +14,7 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
         "mov %0, x0\n"
         : "=r" (_ret)
         : "r" (0x2000000+callno), "r" (a1), "r" (a2), "r" (a3)
-        : "memory", "x0", "x1", "x2", "x16", "x17"
+        : "memory", "x0", "x1", "x2", "x16"
     );
     return _ret;
 }
