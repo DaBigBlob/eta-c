@@ -18,7 +18,7 @@ static inline defn(_target_exit){
         "svc #0x80\n"
         :
         : "r"((long)var->in)
-        : "x0", "x16", "memory"
+        : "x0", "x16"
     );
     var->out.isok = true; // actually unreachable
 }
