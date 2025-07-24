@@ -2,7 +2,7 @@
 #define SRC_LIB_PRELUDE_C
 /* mostly for semantic consistency */
 
-#define list(__type_t) __type_t *
+#define list(__type_t) __type_t*
 
 typedef char byte; // should be tied to sizeof
 
