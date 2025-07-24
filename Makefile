@@ -20,7 +20,7 @@ clean: ${BIN}
 
 run: build
 	@${_PRINTER} "running: ${BIN}${NAME}\n\n" 
-	@${BIN}${NAME} ${TA}
+	@${BIN}${NAME} ${RA}
 
 # aliases
 b: build
