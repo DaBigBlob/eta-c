@@ -1,7 +1,7 @@
 #ifndef SRC_SYS_TARGETS__REQUIREMENTS_C
 #define SRC_SYS_TARGETS__REQUIREMENTS_C
 
-// _requirements -> targets -> target_guards -> internal use
+// _requirements -> targets -> target_guards -> _ -> internal use
 
 #include "../../lib/prelude.c"
 
