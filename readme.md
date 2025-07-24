@@ -27,7 +27,7 @@ These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`
     - file names must be in snake-case
     - example: `./newcfile src/sys/targets/dead_badger_riscv64.c`
 - 4 space indentation
-- C11
+- C11 (+ empty structs)
 - no dependencies external to this repository allowed
 - no internal use of floats allowed
 - must not depend on system secific code (expeption: code in src/sys/targets)
