@@ -20,7 +20,7 @@ typedef enum _tag_bool {
     false = !true
 } bool; // maybe even __attribute__((__packed__)) bool?;
 
-typedef struct {} zerot;
+typedef struct {} zerot; // add -Wno-gnu-empty-struct
 
 #define deft(name, in_t, out_ok_t, out_err_t)\
 typedef union {\
