@@ -8,7 +8,7 @@
 deft(
     _target_unpack_args,
     zerot,
-    struct {uint argc_p; list(string) argv_p;},
+    struct {uint argc; list(string) argv;},
     zerot
 )
 defn(_target_unpack_args);
