@@ -12,8 +12,8 @@ void sys_entry(uint argc, list(string) argv) {
     _target_writef_data wdata;
 
     _target_exit_data aexit = {.in = sys_main(argc, argv)};
-    
     _target_exit_fn(&aexit);
+    
     if (!aexit.out.isok) {
         wdata.in.fd = STDOUT_FD;
         wdata.in.nbytes_to_write = sizeof_buff(aexit.out.unwrap.err);
