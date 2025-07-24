@@ -30,7 +30,7 @@ These (other than the C compiler) can be compiled with [`cosmopolitan toolchain`
 - C11
 - no dependencies external to this repository allowed
 - no internal use of floats allowed
-- must not depend on system secific code (expeption: code in src/sys)
+- must not depend on system secific code (expeption: code in src/sys/targets)
     - this includes a system's libc
     - this includes code that depends on the C runtime
 - all submitted code must abide by the lisence of this repository
