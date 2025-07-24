@@ -17,7 +17,7 @@ void sys_entry() {
         aargs.out.unwrap.ok.argc,
         aargs.out.unwrap.ok.argv
     )};
-    
+    _target_exit_fn(&aexit);
     if (!aexit.out.isok) return; // TODO: do a better job: error handeling
 }
  
