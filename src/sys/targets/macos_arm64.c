@@ -27,7 +27,7 @@ static inline defn(_target_unpack_args){
 
 static inline defn(_target_exit){
     ___internal_macos_arm64_syscall3((memp)1, (memp)(long)var->in, 0, 0);
-    var->out.isok = true; // actually unreachable
+    var->out.isok = false; // actually unreachable so false i.e. something went wrong
 }
 
 #endif // SRC_SYS_TARGETS_MACOS_ARM64_C
