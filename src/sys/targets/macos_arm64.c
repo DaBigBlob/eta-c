@@ -25,7 +25,7 @@ static inline defn(_target_unpack_args){
     if (var) {}
 }
 
-def_errstr(_target_exit, , (could not exit program))
+def_errstr(_target_exit,) "could not exit program";
 static inline defn(_target_exit){
     ___internal_macos_arm64_syscall3((memp)1, (memp)(long)var->in, 0, 0);
     var->out.isok = false; // actually unreachable so false i.e. something went wrong
