@@ -5,9 +5,14 @@
 #include "./lib/bytes.c"
 #include "./sys/_.c" // IWYU pragma: keep
 
+enum sys_main_EXITCODE {
+    EXIT_OK = 0,
+    EXIT_STDOUT_write_failed = 1
+};
+
 uint sys_main(uint argc, list(string) argv) {
 
-    if (argc < 2) return 2;
+    if (argc < 2) return 2; // TODO: better error handeling
 
     _target_writef_data wdata = {
         .in = {
@@ -17,10 +22,9 @@ uint sys_main(uint argc, list(string) argv) {
         }
     };
     _target_writef_fn(&wdata);
-    if (!wdata.out.isok) return 1;
-    // TODO: better error handeling
+    if (!wdata.out.isok) return EXIT_STDOUT_write_failed;
 
-    return 0;
+    return EXIT_OK;
 }
  
 #endif //SRC_MAIN_C
