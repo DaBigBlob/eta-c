@@ -1,3 +1,4 @@
+// make r CC="clang -static" ENTRY="experiments/1.c"
 
 void sys_entry(void) __asm__ ("__sys_entry");
 
