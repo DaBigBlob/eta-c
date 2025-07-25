@@ -8,15 +8,12 @@
 uint sys_main(uint argc, list(string) argv) __asm__ ("__sys_main");
 uint sys_main(uint argc, list(string) argv) {
 
-    // shutup clang
-    (void)argc;
-    (void)argv;
+    if (argc < 2) return 2;
 
     _target_writef_data wdata = {
         .in = {
             .fd = STDOUT_FD,
-            .rbuff = "Hello world!" nl "\0",
-            // .rbuff = argv[0],
+            .rbuff = argv[1],
             .nbytes_to_write = sizeof_buff(wdata.in.rbuff)
         }
     };
