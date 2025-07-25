@@ -3,7 +3,7 @@
 
 #include "./lib/prelude.c"
 #include "./lib/bytes.c"
-#include "./sys/_.c" // IWYU pragma: keep
+#include "./sys/_.c"
 
 enum sys_main_EXITCODE {
     EXIT_OK = 0,
