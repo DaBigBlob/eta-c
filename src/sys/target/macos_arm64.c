@@ -9,8 +9,8 @@ void sys_entry(void) {
         // done by dyld:
         //   x0 <- argc
         //   x1 <- argv (char **)
-        // why is dyld needed? cuz otherwise (when using clang -static) macos SIGKILLs the process, idk
-        // apparently clang (apple's) -static is only used to build ther kernel? whose signature is different than ordinary executables?
+        // why is dyld needed?
+        // because the brilliant folks at XNU wrote this garbage: https://github.com/apple-oss-distributions/xnu/blob/a325d9c4a84054e40bbe985afedcb50ab80993ea/bsd/kern/mach_loader.c#L844-L862
 
         // with args: x0, x1
         // call sys_main(argc, argv)
