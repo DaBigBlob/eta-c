@@ -3,7 +3,8 @@
 
 #include "./_preq.c"
 
-__attribute__((naked)) void sys_entry(void) {
+__attribute__((naked))
+void sys_entry(void) {
     __asm__ __volatile__ (
         // done by dyld:
         //   x0 <- argc
