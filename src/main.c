@@ -9,7 +9,7 @@ enum sys_main_EXITCODE {
     EXIT_OK = 0,
     EXIT_STDOUT_write_failed = 1,
     EXIT_STDERR_write_failed = 2,
-    EXIT_error_set_in_STDERR = 3
+    EXIT_msg_set_in_STDERR = 3
 };
 
 uint sys_main(uint argc, list(string) argv) {
@@ -20,7 +20,7 @@ uint sys_main(uint argc, list(string) argv) {
         ewd.in.rbuff = "need exactly 1 argument" nl "\0";
         ewd.in.nbytes_to_write = sizeof_buff(ewd.in.rbuff);
         _target_writef_fn(&ewd);
-        if (ewd.out.isok) return EXIT_error_set_in_STDERR;
+        if (ewd.out.isok) return EXIT_msg_set_in_STDERR;
         else return EXIT_STDERR_write_failed;
     }
 
