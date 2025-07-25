@@ -10,7 +10,7 @@ void sys_entry(void) {
         //   x0 <- argc
         //   x1 <- argv (char **)
         // why is dyld needed?
-        // because the brilliant folks at XNU wrote this garbage: https://github.com/apple-oss-distributions/xnu/blob/a325d9c4a84054e40bbe985afedcb50ab80993ea/bsd/kern/mach_loader.c#L844-L862
+        // because the brilliant folks at XNU wrote this garbage: https://github.com/apple-oss-distributions/xnu/blob/a1e26a70f38d1d7daa7b49b258e2f8538ad81650/bsd/kern/mach_loader.c#L861C2-L883C9
         // tl;dr: truly static executables arent supported by arm64 XNU build in non-development mode
 
         // with args: x0, x1
