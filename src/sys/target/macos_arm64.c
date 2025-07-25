@@ -9,6 +9,7 @@ __attribute__((naked)) void sys_entry(void) {
         //   x0 <- argc
         //   x1 <- argv (char **)
         // why is dyld needed? cuz otherwise (when using clang -static) macos SIGKILLs the process, idk
+        // apparently clang (apple's) -static is only used to build ther kernel? whose signature is different than ordinary executables?
 
         // with args: x0, x1
         // call sys_main(argc, argv)
