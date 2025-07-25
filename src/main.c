@@ -13,21 +13,22 @@ enum sys_main_EXITCODE {
 };
 
 uint sys_main(uint argc, list(string) argv) {
-    _target_writef_data owd = {.in.fd = STDOUT_FD};
-    _target_writef_data ewd = {.in.fd = STDERR_FD};
+    _target_writef_data wd;
 
     if (argc != 2) {
-        ewd.in.rbuff = "need exactly 1 argument" nl "\0";
-        ewd.in.nbytes_to_write = sizeof_buff(ewd.in.rbuff);
-        _target_writef_fn(&ewd);
-        if (ewd.out.isok) return EXIT_msg_set_in_STDERR;
+        wd.in.fd = STDERR_FD;
+        wd.in.rbuff = "need exactly 1 argument" nl "\0";
+        wd.in.nbytes_to_write = sizeof_buff(wd.in.rbuff);
+        _target_writef_fn(&wd);
+        if (wd.out.isok) return EXIT_msg_set_in_STDERR;
         return EXIT_STDERR_write_failed;
     }
 
-    owd.in.rbuff = argv[1];
-    owd.in.nbytes_to_write = sizeof_buff(owd.in.rbuff);
-    _target_writef_fn(&owd);
-    if (!owd.out.isok) return EXIT_STDOUT_write_failed;
+    wd.in.fd = STDOUT_FD;
+    wd.in.rbuff = argv[1];
+    wd.in.nbytes_to_write = sizeof_buff(wd.in.rbuff);
+    _target_writef_fn(&wd);
+    if (!wd.out.isok) return EXIT_STDOUT_write_failed;
 
     return EXIT_OK;
 }
