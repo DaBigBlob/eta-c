@@ -1,7 +1,12 @@
 #ifndef SRC_SYS___C
 #define SRC_SYS___C
 
+/* final preparation for direct usage by program */
+
 #include "./target/_.c" // IWYU pragma: keep
+
+// declare right symbol name for bein called by __asm__ ("__sys_extry")
+uint sys_main(uint argc, list(string) argv) __asm__ ("__sys_main");
 
 #ifndef STDIN_FD
     #error "target requirements not met: STDIN_FD undefined"

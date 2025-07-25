@@ -5,7 +5,6 @@
 #include "./lib/bytes.c"
 #include "./sys/_.c" // IWYU pragma: keep
 
-uint sys_main(uint argc, list(string) argv) __asm__ ("__sys_main");
 uint sys_main(uint argc, list(string) argv) {
 
     if (argc < 2) return 2;

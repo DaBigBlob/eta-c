@@ -1,6 +1,8 @@
 #ifndef SRC_SYS_TARGETS___C
 #define SRC_SYS_TARGETS___C
 
+/* the right target is to be selected here */
+
 #ifdef __APPLE__
     #ifdef __aarch64__
         #include "./macos_arm64.c" // IWYU pragma: keep
