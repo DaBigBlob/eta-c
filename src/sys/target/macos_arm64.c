@@ -50,7 +50,7 @@ static inline defn(_target_writef) {
     );
     if ((long)_ret < 0) {
         var->out.isok = false;
-        // TODO: define all errors as const string
+        // TODO: define all errors using def_errstr(fname, name)
     } else {
         var->out.isok = true;
         var->out.unwrap.ok.nbytes_written = (long)_ret;
