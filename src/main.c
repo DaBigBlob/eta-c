@@ -1,4 +1,6 @@
-#ifndef SRC_MAIN_C
+#ifdef SRC_MAIN_C
+    #error "src/main.c is entry point and should not be included by anything"
+#else
 #define SRC_MAIN_C
 
 #include "./lib/prelude.c"
