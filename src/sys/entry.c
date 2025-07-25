@@ -7,11 +7,10 @@
 #include "../main.c"
 #include "../lib/bytes.c"
 
-void sys_entry(void* sp0, void* sp1) __asm__ ("__sys_entry");
-void sys_entry(void* sp0, void* sp1) {
+void sys_entry() __asm__ ("__sys_entry");
+void sys_entry() {
     _target_writef_data wdata;
-
-    _target_unpack_args_data updata = {.in = {.sp0 = sp0, .sp1=sp1}};
+    _target_unpack_args_data updata;
     _target_unpack_args_fn(&updata);
     if (!updata.out.isok) return; // TODO: better error handeling
 

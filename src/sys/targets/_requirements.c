@@ -7,7 +7,7 @@
 
 deft(
     _target_unpack_args,
-    struct {memp sp0; memp sp1;},
+    zerot,
     struct {ulong argc; list(string) argv;},
     zerot
 )

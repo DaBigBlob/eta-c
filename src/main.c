@@ -7,13 +7,15 @@
 
 uint sys_main(uint argc, list(string) argv) {
 
-    if (argc < 2) return 2;
+    // shutup clang
+    (void)argc;
+    (void)argv;
 
     _target_writef_data wdata = {
         .in = {
             .fd = STDOUT_FD,
-            .rbuff = argv[1],
-            .nbytes_to_write = sizeof_buff(argv[1])
+            .rbuff = "Hello world!" nl "\0",
+            .nbytes_to_write = sizeof_buff(wdata.in.rbuff)
         }
     };
     _target_writef_fn(&wdata);

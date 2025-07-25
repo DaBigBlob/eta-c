@@ -24,15 +24,9 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
 #define STDERR_FD (memp)(long)2
 
 static inline defn(_target_unpack_args){
-    // kinda useless for *nix ish OSs
-    if ((long)(var->in.sp0) < 0) {
-        var->out.isok = false;
-        return;
-    } else {
-        var->out.isok = true;
-        var->out.unwrap.ok.argc = (long)(var->in.sp0);
-        var->out.unwrap.ok.argv = (list(string))(var->in.sp1);
-    }
+    var->out.isok = true;
+    var->out.unwrap.ok.argc = 0;
+    var->out.unwrap.ok.argv = 0;
 }
 
 def_errstr(_target_exit,) "could not exit program";
