@@ -1,25 +1,14 @@
 #ifndef SRC_SYS_TARGETS__REQUIREMENTS_C
 #define SRC_SYS_TARGETS__REQUIREMENTS_C
 
-// _requirements -> targets -> target_guards -> _ -> internal use
+// _preq -> targets -> target_guards -> _ -> internal use
 
 #include "../../lib/prelude.c"
 
-deft(
-    _target_unpack_args,
-    zerot,
-    struct {ulong argc; list(string) argv;},
-    zerot
-)
-static inline defn(_target_unpack_args);
+/* entry of the program */
+void sys_entry(void) __asm__ ("__sys_entry");
 
-deft(
-    _target_exit,
-    long,
-    zerot,
-    string
-)
-static inline defn(_target_exit);
+/* syscall, etc */
 
 deft(
     _target_openf,

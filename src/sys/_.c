@@ -1,7 +1,7 @@
 #ifndef SRC_SYS___C
 #define SRC_SYS___C
 
-#include "./targets/_.c" // IWYU pragma: keep
+#include "./target/_.c" // IWYU pragma: keep
 
 #ifndef STDIN_FD
     #error "target requirements not met: STDIN_FD undefined"

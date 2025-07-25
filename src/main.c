@@ -5,6 +5,7 @@
 #include "./lib/bytes.c"
 #include "./sys/_.c" // IWYU pragma: keep
 
+uint sys_main(uint argc, list(string) argv) __asm__ ("__sys_main");
 uint sys_main(uint argc, list(string) argv) {
 
     // shutup clang
@@ -15,6 +16,7 @@ uint sys_main(uint argc, list(string) argv) {
         .in = {
             .fd = STDOUT_FD,
             .rbuff = "Hello world!" nl "\0",
+            // .rbuff = argv[0],
             .nbytes_to_write = sizeof_buff(wdata.in.rbuff)
         }
     };

@@ -1,7 +1,20 @@
 #ifndef SRC_SYS_TARGETS_MACOS_ARM64_C
 #define SRC_SYS_TARGETS_MACOS_ARM64_C
 
-#include "./_requirements.c"
+#include "./_preq.c"
+
+__attribute__((naked)) void sys_entry(void) {
+    __asm__ __volatile__(
+        "mov    x2, sp\n"        // x2 = original SP
+        "ldr    x0, [x2]\n"      // x0 = argc
+        "add    x1, x2, #8\n"    // x1 = argv (char **)
+        "bl     __sys_main\n"    // call main(argc, argv)
+        // Upon return, x0 holds main's return value
+        "mov    x16, #1\n"       // syscall number: exit (low bits)
+        "movk   x16, #0x2000, lsl #16\n" // complete to 0x2000001
+        "svc    #0x80\n"        // trap into kernel
+    );
+}
 
 static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a2, memp a3) {
     void* _ret;
@@ -22,20 +35,6 @@ static inline memp ___internal_macos_arm64_syscall3(memp callno, memp a1, memp a
 #define STDIN_FD (memp)(long)0
 #define STDOUT_FD (memp)(long)1
 #define STDERR_FD (memp)(long)2
-
-static inline defn(_target_unpack_args){
-    // placeholder for now
-    var->out.isok = true;
-    var->out.unwrap.ok.argc = 0;
-    var->out.unwrap.ok.argv = 0;
-}
-
-def_errstr(_target_exit,) "could not exit program";
-static inline defn(_target_exit){
-    ___internal_macos_arm64_syscall3((memp)0x2000001, (memp)(long)var->in, 0, 0);
-    var->out.isok = false; // actually unreachable so false i.e. something went wrong
-    var->out.unwrap.err = ERRSTR__target_exit;
-}
 
 static inline defn(_target_writef) {
     memp _ret = ___internal_macos_arm64_syscall3(
