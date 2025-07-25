@@ -21,7 +21,7 @@ uint sys_main(uint argc, list(string) argv) {
         ewd.in.nbytes_to_write = sizeof_buff(ewd.in.rbuff);
         _target_writef_fn(&ewd);
         if (ewd.out.isok) return EXIT_msg_set_in_STDERR;
-        else return EXIT_STDERR_write_failed;
+        return EXIT_STDERR_write_failed;
     }
 
     owd.in.rbuff = argv[1];
