@@ -63,5 +63,8 @@ void name##_fn(name##_data *var)
 /// convenient macro for const str err return from "fn" functions
 #define def_errstr(fname, name) const string ERRSTR_##name##fname = #fname" ERROR: "
 
+/// expose symbols because default CC -fvisibility=hidden
+#define expose(name, as_name)\
+void name(void) __asm__ (#as_name);
 
 #endif //SRC_CORE_PRELUDE_C
