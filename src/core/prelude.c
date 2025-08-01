@@ -64,9 +64,12 @@ void name##_fn(name##_data *var)
 #define def_errstr(fname, name)\
 const string ERRSTR_##name##fname = #fname" ERROR: "
 
+/// naming const str defined with "def_errstr"
+#define errstr(fname, name) ERRSTR_##name##fname
+
 /// expose symbols because default CC -fvisibility=hidden
-#define expose(name, as_name)\
-void name(void) __asm__ (#as_name);
+#define expose(fname, as_name)\
+void fname(void) __asm__ (#as_name);
 
 /// reminder to use the following to make clangd shutup
 // IWYU pragma: keep
