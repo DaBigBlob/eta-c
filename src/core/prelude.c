@@ -9,24 +9,35 @@ but only exist for semantic clarity.
 
 #define list(__type_t) __type_t*
 
-typedef char byte; // should be tied to sizeof
+/// should be tied to sizeof
+typedef char byte;
 
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
 
-typedef byte* memp;  // mem pointer // not void* to make *arithmetic easier
-typedef ulong memsz; // mem sized
+/// mem pointer
+/// not void* to make pointer arithmetic easier
+typedef byte* memp;
+/// mem sized
+typedef ulong memsz;
 
-typedef list(char) string;
+/// pointer to bytes list
+typedef list(byte) string;
 
-typedef enum _tag_bool {
+/// simple bool
+typedef enum {
     true = 1,
     false = !true
-} bool; // maybe even __attribute__((__packed__)) bool?;
+} bool; // maybe even "__attribute__((__packed__)) bool"?;
 
-typedef struct {} zerot; // add -Wno-gnu-empty-struct
+/// empty data
+/// CC -Wno-gnu-empty-struct
+typedef struct {} zerot;
 
+/// monadic struct as function type def created with "defn"
+/// wants to preserve referencial transparency
+/// all side-effect-able object reference should be passed though this struct
 #define deft(name, in_t, out_ok_t, out_err_t)\
 typedef union {\
     struct {\
@@ -39,9 +50,17 @@ typedef union {\
     in_t in;\
 } name##_data;
 
+/// naming struct defined using "defn"
+#define fnd(name) name##_data
+
+/// for defining function body with type signature defined using "defn"
 #define defn(name)\
 void name##_fn(name##_data *var)
 
+/// naming functions defined using "deft" and "defn"
+#define fn(name) name##_fn
+
+/// convenient macro for 
 #define def_errstr(fname, name) const string ERRSTR_##name##fname = #fname" ERROR: "
 
 
