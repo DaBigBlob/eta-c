@@ -37,6 +37,6 @@ _file="${_dir}/${_file}"
 {
     printf "#ifndef %s\n" "${_name}"
     printf "#define %s\n" "${_name}"
-    printf " \n#endif //%s\n" "${_name}"
+    printf "\n#endif //%s\n" "${_name}"
 } > "${_file}"
 exit 0

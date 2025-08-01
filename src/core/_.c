@@ -2,9 +2,10 @@
 #define SRC_CORE___C
 
 /*
-This file exports symbols from core.
+Entry for compiler.
 */
 
-#include "./prelude.c" // IWYU pragma: keep
+#include "./_in.c" // IWYU pragma: keep
+#include "./_out.c" // IWYU pragma: keep
  
 #endif //SRC_CORE___C
