@@ -50,7 +50,7 @@ typedef union {\
     in_t in;\
 } name##_data;
 
-/// naming struct defined using "defn"
+/// naming struct for use with "fn" functions
 #define fnd(name) name##_data
 
 /// for defining function body with type signature defined using "defn"
@@ -60,7 +60,7 @@ void name##_fn(name##_data *var)
 /// naming functions defined using "deft" and "defn"
 #define fn(name) name##_fn
 
-/// convenient macro for 
+/// convenient macro for const str err return from "fn" functions
 #define def_errstr(fname, name) const string ERRSTR_##name##fname = #fname" ERROR: "
 
 
