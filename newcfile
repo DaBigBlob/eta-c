@@ -11,6 +11,7 @@ fi
 
 if [ -f "$1" ]; then
   printf "file exists\ndelete it first\n"
+  exit 1
 fi
 
 _dir=$(dirname "${_path}")
