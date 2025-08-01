@@ -61,7 +61,8 @@ void name##_fn(name##_data *var)
 #define fn(name) name##_fn
 
 /// convenient macro for const str err return from "fn" functions
-#define def_errstr(fname, name) const string ERRSTR_##name##fname = #fname" ERROR: "
+#define def_errstr(fname, name)\
+const string ERRSTR_##name##fname = #fname" ERROR: "
 
 /// expose symbols because default CC -fvisibility=hidden
 #define expose(name, as_name)\
