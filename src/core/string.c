@@ -1,5 +1,9 @@
-#ifndef SRC_CORE_BYTES_C
-#define SRC_CORE_BYTES_C
+#ifndef SRC_CORE_STRING_C
+#define SRC_CORE_STRING_C
+
+/*
+Utility functions to deal with (byte) strings.
+*/
 
 #include "./prelude.c"
 
@@ -15,4 +19,4 @@ inline memsz
 sizeof_buff(const memp buff)
 _def_byte_delimit_sizeof_buff('\0', buff)
 
-#endif //SRC_CORE_BYTES_C
+#endif //SRC_CORE_STRING_C
