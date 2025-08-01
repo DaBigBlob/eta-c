@@ -68,4 +68,7 @@ const string ERRSTR_##name##fname = #fname" ERROR: "
 #define expose(name, as_name)\
 void name(void) __asm__ (#as_name);
 
+/// reminder to use the following to make clangd shutup
+// IWYU pragma: keep
+
 #endif //SRC_CORE_PRELUDE_C

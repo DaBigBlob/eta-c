@@ -4,5 +4,7 @@
 /*
 This file exports symbols from core.
 */
+
+#include "./prelude.c" // IWYU pragma: keep
  
 #endif //SRC_CORE___C
