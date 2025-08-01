@@ -5,4 +5,6 @@
 Importing symbols implemented ourside src/core.
 */
 
+#include "../core/_out.c" // IWYU pragma: keep
+
 #endif //SRC_MAIN__IN_C
