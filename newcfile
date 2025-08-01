@@ -9,6 +9,10 @@ else
   exit 1
 fi
 
+if [ -f "$1" ]; then
+  printf "file exists\ndelete it first\n"
+fi
+
 _dir=$(dirname "${_path}")
 mkdir -p "${_dir}"
 cd "${_dir}" || exit
