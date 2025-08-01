@@ -2,8 +2,7 @@
 #define SRC_SYS_PRELUDE_C
 
 /*
-Is a sopecial file.
-Dummy for src/core/prelude.c.
+Is a special file to keep imclude flatness with src/core/prelude.c.
 */
 
 #include "../core/prelude.c" // IWYU pragma: keep
