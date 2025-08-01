@@ -6,6 +6,6 @@ Entry for compiler.
 */
 
 #include "./_in.c" // IWYU pragma: keep
-#include "./main.c" // IWYU pragma: keep
+#include "./_out.c" // IWYU pragma: keep
 
 #endif //SRC_MAIN___C
