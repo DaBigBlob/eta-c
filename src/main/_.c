@@ -5,7 +5,8 @@
 Entry for compiler.
 */
 
-#include "./_in.c" // IWYU pragma: keep
-#include "./_out.c" // IWYU pragma: keep
+#include "../core/prelude.c" // IWYU pragma: keep
+
+uint sys_main(uint argc, list(string) argv) __asm__ ("__sys_main");
 
 #endif //SRC_MAIN___C

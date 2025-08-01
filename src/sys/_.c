@@ -5,6 +5,4 @@
 Entry for compiler.
 */
 
-#include "./_out.c" // IWYU pragma: keep
-
 #endif //SRC_SYS___C
