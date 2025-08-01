@@ -2,7 +2,7 @@
 #define SRC_MAIN__IN_C
 
 /*
-Importing symbols implemented ourside src/core.
+Importing symbols implemented ourside src/main.
 */
 
 #include "../core/_out.c" // IWYU pragma: keep
