@@ -24,6 +24,16 @@ typedef struct {
     #define RPRC_TOLERANCE 4
 #endif // RPRC_TOLERANCE
 
+///error codes
+typedef enum {
+    RPRC_ERROR_ARENA_EXHAUSTED,
+    RPRC_OK,
+    // TODO
+    UNIMPLEMENTED
+} RPRC_CODE;
+
+
+
 /*
 In the act of allocating a new block with reference R and size S,
     - for each block already present with reference aR and size aS,
@@ -43,11 +53,16 @@ In the act of allocating a new block with reference R and size S,
 
 /*
 rprcalloc usage:
-something* new_ptr;
-rprcalloc(&(memp)new_ptr, sizeof(something), arena);
+something* something_ptr;
+
+
+switch (rprcalloc(&(memp)something_ptr, sizeof(something), arena_ptr)) {
+    0 : 
+}
 */
 
-void rprcalloc(memp* refp, memsz size, memp arena) {
+RPRC_CODE rprcalloc(memp* refp, memsz size, memp arena) {
+    return UNIMPLEMENTED;
 }
 
 #endif //SRC_LIB_RPRCALLOC_C
