@@ -80,7 +80,7 @@ void name##_fn(name##_data *var)
     /// naming const str defined with "def_errstr"
     #define errstr(fname, name) ERRSTR_##name_##fname
 #else
-    const string ERRSTR_NO_HUMAN_READABLE_ERROR = "no human readable error";
+    const string ERRSTR_NO_HUMAN_READABLE_ERROR = "ERROR: <no human readable error>";
 
     /// convenient macro for const str err return from "fn" functions
     #define def_errstr(fname, name, error)
