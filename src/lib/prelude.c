@@ -7,6 +7,10 @@ It also defines semantic artifacts (e.g. list) that cause no runtime cost
 but only exist for semantic clarity. 
 */
 
+__asm__(".ident\t\"\\n\\n\
+Eta Language (C impl)\\n\
+Copyright DaBigBlob <hman@hman.io>\"");
+
 #define list(__type_t) __type_t*
 
 /// should be tied to sizeof
