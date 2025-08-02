@@ -55,9 +55,13 @@ In the act of allocating a new block with reference R and size S,
 rprcalloc usage:
 something* something_ptr;
 
-
 switch (rprcalloc(&(memp)something_ptr, sizeof(something), arena_ptr)) {
-    0 : 
+    RPRC_ERROR_ARENA_EXHAUSTED :
+        // retry with another arena
+        break;
+    RPRC_OK :
+        break;
+    // etc, you get the point
 }
 */
 
