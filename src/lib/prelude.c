@@ -7,9 +7,10 @@ It also defines semantic artifacts (e.g. list) that cause no runtime cost
 but only exist for semantic clarity. 
 */
 
+/// Comply with license
 __asm__(".ident\t\"\\n\\n\
-Eta Language (C impl)\\n\
-Copyright (c) 2025 DaBigBlob <hman@hman.io>\"");
+Eta (C impl)\\n\
+Copyright (c) 2025 DabigBlob <hman@hman.io>\"");
 
 #define list(__type_t) __type_t*
 
