@@ -10,7 +10,7 @@ but only exist for semantic clarity.
 /// Comply with license
 __asm__(".ident\t\"\\n\\n\
 Eta (C impl) (BSD-2 License)\\n\
-Copyright (c) 2025 DabigBlob <hman@hman.io>\"");
+Copyright (c) 2025 DaBigBlob <hman@hman.io>\"");
 
 #define list(__type_t) __type_t*
 
