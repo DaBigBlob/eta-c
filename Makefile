@@ -1,6 +1,6 @@
 
 CC = zig cc -static
-CFLAGS = -nostdinc -nostdlib -O3 -Wall -Wextra -Wfatal-errors -ffreestanding -fomit-frame-pointer -fno-plt -nodefaultlibs -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-stack-protector -fno-builtin -std=c11 -pedantic -pedantic-errors -Wl,-e,__sys_entry -g0 -fno-exceptions -Wa,--noexecstack -fno-ident -Wno-gnu-empty-struct -fvisibility=hidden
+CFLAGS = -nostdinc -nostdlib -O3 -Wall -Wextra -Wfatal-errors -ffreestanding -fomit-frame-pointer -fno-plt -nodefaultlibs -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-stack-protector -fno-builtin -std=c11 -pedantic -pedantic-errors -Wl,-e,__sys_entry -g0 -fno-exceptions -Wa,--noexecstack -fno-ident -Wno-gnu-empty-struct -fvisibility=hidden -fPIC -pie
 
 
 ENTRY = src/main.c
