@@ -5,4 +5,6 @@
 Entry for compiler.
 */
 
+#include "./interface.c" // IWYU pragma: keep
+
 #endif //SRC_SYS___C

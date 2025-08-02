@@ -5,9 +5,7 @@
 Entry for compiler.
 */
 
-#include "../lib/prelude.c" // IWYU pragma: keep
+#include "./interface.c" // IWYU pragma: keep
 #include "./main.c" // IWYU pragma: keep
-
-uint sys_main(uint argc, list(string) argv) __asm__ ("__sys_main");
 
 #endif //SRC_MAIN___C
