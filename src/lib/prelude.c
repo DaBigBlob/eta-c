@@ -9,7 +9,7 @@ but only exist for semantic clarity.
 
 /// Comply with license
 __asm__(".ident\t\"\\n\\n\
-Eta (C impl)\\n\
+Eta (C impl) (BSD-2 License)\\n\
 Copyright (c) 2025 DabigBlob <hman@hman.io>\"");
 
 #define list(__type_t) __type_t*
@@ -65,12 +65,29 @@ void name##_fn(name##_data *var)
 /// naming functions defined using "deft" and "defn"
 #define fn(name) name##_fn
 
-/// convenient macro for const str err return from "fn" functions
-#define def_errstr(fname, name)\
-const string ERRSTR_##name##fname = #fname" ERROR: "
+// an useful out_err_t would be a machine readable code
+// along with a reference to a human readable const str
 
-/// naming const str defined with "def_errstr"
-#define errstr(fname, name) ERRSTR_##name##fname
+// if NO_HUMAN_READABLE_ERROR symbol is declared,
+// all of these const str are set to "no human readable error"
+// this potentially saves a lot of of space
+
+#ifndef NO_HUMAN_READABLE_ERROR
+    /// convenient macro for const str err return from "fn" functions
+    #define def_errstr(fname, name, error)\
+    const string ERRSTR_##name_##fname = #fname" ERROR: "error;
+
+    /// naming const str defined with "def_errstr"
+    #define errstr(fname, name) ERRSTR_##name_##fname
+#else
+    const string ERRSTR_NO_HUMAN_READABLE_ERROR = "no human readable error";
+
+    /// convenient macro for const str err return from "fn" functions
+    #define def_errstr(fname, name, error)
+
+    /// naming const str defined with "def_errstr"
+    #define errstr(fname, name) ERRSTR_NO_HUMAN_READABLE_ERROR
+#endif // NO_HUMAN_READABLE_ERROR
 
 /// reminder to use the following to make clangd shutup
 // IWYU pragma: keep
