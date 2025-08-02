@@ -9,7 +9,7 @@ but only exist for semantic clarity.
 
 __asm__(".ident\t\"\\n\\n\
 Eta Language (C impl)\\n\
-Copyright DaBigBlob <hman@hman.io>\"");
+Copyright (c) 2025 DaBigBlob <hman@hman.io>\"");
 
 #define list(__type_t) __type_t*
 
