@@ -1,5 +1,5 @@
-#ifndef SRC_CORE_PRELUDE_C
-#define SRC_CORE_PRELUDE_C
+#ifndef SRC_LIB_PRELUDE_C
+#define SRC_LIB_PRELUDE_C
 
 /**
 This file defines conventions so that other files can talk to each other.
@@ -70,4 +70,4 @@ const string ERRSTR_##name##fname = #fname" ERROR: "
 /// reminder to use the following to make clangd shutup
 // IWYU pragma: keep
 
-#endif //SRC_CORE_PRELUDE_C
+#endif //SRC_LIB_PRELUDE_C

@@ -1,5 +1,5 @@
-#ifndef SRC_CORE_STRING_C
-#define SRC_CORE_STRING_C
+#ifndef SRC_LIB_STRING_C
+#define SRC_LIB_STRING_C
 
 /*
 Utility functions to deal with (byte) strings.
@@ -22,4 +22,4 @@ inline memsz
 sizeof_buff(const memp buff)
 _def_byte_delimit_sizeof_buff('\0', buff)
 
-#endif //SRC_CORE_STRING_C
+#endif //SRC_LIB_STRING_C
