@@ -7,10 +7,7 @@ It also defines semantic artifacts (e.g. list) that cause no runtime cost
 but only exist for semantic clarity. 
 */
 
-/// Comply with license
-__asm__(".ident\t\"\\n\\n\
-Eta (C impl) (BSD-2 License)\\n\
-Copyright (c) 2025 DaBigBlob <hman@hman.io>\"");
+#include "../../LICENSE.c"
 
 #define list(__type_t) __type_t*
 
