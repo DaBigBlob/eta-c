@@ -1,7 +1,3 @@
-__asm__(".ident\t\"\\n\\n\
-Eta (C impl) (BSD-2 License)\\n\
-Copyright (c) 2025 DaBigBlob <hman@hman.io>\"");
-
 /*
 C implementation of Eta is released under the 2-clause BSD license.
 
@@ -32,3 +28,8 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
+/// C code that inserts copyright notice into ident section of binary
+__asm__(".ident\t\"\\n\\n\
+Eta (C impl) (BSD-2 License)\\n\
+Copyright (c) 2025 DaBigBlob <hman@hman.io>\"");
