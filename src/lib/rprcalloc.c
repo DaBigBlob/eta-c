@@ -37,7 +37,7 @@ typedef enum {
 /*
 In the act of allocating a new block with reference R and size S,
     - for each block already present with reference aR and size aS,
-        - check if &aR == aR i.e. reverse pointer check
+        - check if *aR == aR i.e. reverse pointer check
             - alive -> repeat for next block
             - dead -> check size of the block for aS >= S && aS <= S + RPRC_TOLERANCE
                 - true -> re-assign block
