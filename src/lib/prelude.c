@@ -72,13 +72,13 @@ void name##_fn(name##_data *var)
 #ifndef NO_HUMAN_READABLE_ERROR
     /// convenient macro for const str err return from "fn" functions
     #define def_errstr(fname, name, error)\
-    const string ERRSTR_##name_##fname = #fname" ERROR: "error;
+    const string ERRSTR_##name_##fname = #fname " ERROR: " error "; ";
 
     /// naming const str defined with "def_errstr"
     #define errstr(fname, name) ERRSTR_##name_##fname
 #else
     const string ERRSTR_NO_HUMAN_READABLE_ERROR
-        = "ERROR: <no human readable error>";
+        = "ERROR: <no human readable error>; ";
 
     /// convenient macro for const str err return from "fn" functions
     #define def_errstr(fname, name, error)
