@@ -51,8 +51,7 @@ In the act of allocating a new block with reference R and size S,
         - allocate new
 */
 
-/*
-rprcalloc usage:
+/* usage example:
 something* something_ptr;
 
 switch (rprcalloc(&(memp)something_ptr, sizeof(something), arena_ptr)) {
